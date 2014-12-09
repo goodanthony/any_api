@@ -4,7 +4,7 @@ class AnyApiTest < Minitest::Test
 
 
   def test_connection
-     response = AnyApi::Request.new('/tickets.json', "Get")
+     response = AnyApi::Request.new( "Get", '/tickets.json')
       #p response
       #p response.apiresult.body
       p response.parser_response

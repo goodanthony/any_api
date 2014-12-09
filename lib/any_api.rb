@@ -12,7 +12,7 @@ module AnyApi
     attr_accessor :apiresult
     HTTPMETHODS = ["Get", "Head", "Post", "Patch", "Put", "Proppatch", "Lock", "Unlock", "Options", "Propfind", "Delete", "Move", "Copy", "Mkcol", "Trace"]
 
-    def initialize(endpoint, http_method, params_hsh = nil)
+    def initialize(http_method, endpoint, params_hsh = nil)
 
       uri = URI.parse("#{AnyApi.configuration.api_base_url}/#{endpoint}")
 
