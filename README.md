@@ -1,8 +1,8 @@
 # AnyApi is  the worlds smallest API client :-)
 
-Decided to share this thanks to some research I did on APIs. Most of them has a base URL, then API endpoint, API username and a API password. Then there is request responses. A simple solution to access and work with a big or small APIs.
+Decided to share this thanks to some research I did on APIs. Most of them have a base URL, then API endpoint, API username and a API password. Then there are requests and responses. A simple solution to access and work with a big or small APIs.
 
-Please give Ruby's Net::HTTP Library. That is the backbone behind this.  Net::HTTP simple, does the job, it is fast and build on top Ruby's IO so straight to the point.
+Please give Ruby's Net::HTTP Library a go. That is the backbone behind this.  Net::HTTP simple, does the job, it is fast and build on top Ruby's IO so straight to the point.
 
 ## Installation
 
@@ -52,8 +52,10 @@ response = AnyApi::Request.new('/users/new', "Post", my_params)
 To parse the response
 
 ```ruby
-response
+response.parser_response
 ```
+
+Thanks
 
 
 ## Contributing
