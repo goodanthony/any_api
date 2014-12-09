@@ -36,7 +36,7 @@ end
 Then you can call any API with  
 
 ```ruby
-response = AnyApi::Request.new("Get", '/products.json' )
+response = AnyApi::Request.new("Get", 'products.json' )
 ```
 
 The first parameter is the HTTP method. Secondly it is the url endpoint.
@@ -46,7 +46,7 @@ If you want to do Post or Update calls please send parameters with your request
 
 ```ruby
 my_params = {"year"=>"2014", "country"=>"Australia", "first_name"=>"True", "last_name"=>"Colours"}
-response = AnyApi::Request.new( "Post", '/users/new', my_params)
+response = AnyApi::Request.new( "Post", 'users/new', my_params)
 ```
 
 To parse the response
