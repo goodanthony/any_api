@@ -17,7 +17,7 @@ module AnyApi
       uri = URI.parse("#{AnyApi.configuration.api_base_url}/#{endpoint}")
 
       res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-        # a safe eval as only for internal use to give http method - Get, Put, Post, Delete
+        # a safe eval as only  one of the above HTTPMETHODS would be allowed ie: Get, Put, Post, Delete
         request = eval "Net::HTTP::#{http_method if HTTPMETHODS.include?(http_method)}.new uri"
         request.basic_auth(AnyApi.configuration.username, AnyApi.configuration.password)
         request["Content-Type"] = "application/json"
@@ -33,17 +33,17 @@ module AnyApi
 
     def parser_response
       case  apiresult
-      when Net::HTTPSuccess
-        JSON.parse  apiresult.body
-      when Net::HTTPUnauthorized
-        {'error' => "#{ apiresult.message}: username and password set and correct?"}
-      when Net::HTTPServerError
-        {'error' => "#{ apiresult.message}: try again later?"}
-      else
-        {'error' =>  "there seems to be an error in the server, please try again"}
+        when Net::HTTPSuccess
+          JSON.parse  apiresult.body
+        when Net::HTTPUnauthorized
+          {'error' => "#{ apiresult.message}: username and password set and correct?"}
+        when Net::HTTPServerError
+          {'error' => "#{ apiresult.message}: try again later?"}
+        else
+          {'error' =>  "there seems to be an error in the server, please try again"}
+        end
       end
     end
-  end
 
 
 end

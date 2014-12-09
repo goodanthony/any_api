@@ -3,9 +3,9 @@ module AnyApi
     attr_accessor :username, :password, :api_base_url, :log_level
 
     def initialize
+      self.api_base_url = nil
       self.username =  nil
       self.password =  nil
-      self.api_base_url = nil
       self.log_level = 'info'
     end
   end

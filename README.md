@@ -26,10 +26,11 @@ If you are going to use this with Rails. Add bellow code your application.rb fil
 
 ```ruby
 AnyApi.configure do |config|
+  #please dont put a "/" at the end of the api_base_url
+  config.api_base_url =  "https://iamfree.com/api/v1"
+  #Dont need bellow authentication information if the API does not need username and password  
   config.username =  "me@example.com"
   config.password =  "my-sectret-password"
-  config.api_base_url =  "https://iamfree.com/api/v1"
-  #please dont put a "/" at the end of the api_base_url
 end
 ```
 
