@@ -56,6 +56,24 @@ To parse the response
 response.parser_response
 ```
 
+
+If you want assert that the API call is a success before save your information database you could use the is_ok? method
+
+```ruby
+  if response.is_ok?
+    good_json = response.parser_response
+    ......
+  else
+    bad_json_error_message = response.parser_response
+    .....
+  end
+
+
+```
+
+
+
+
 Thanks
 
 

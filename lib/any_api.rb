@@ -41,9 +41,22 @@ module AnyApi
           {'error' => "#{ apiresult.message}: try again later?"}
         else
           {'error' =>  "there seems to be an error in the server, please try again"}
-        end
       end
     end
 
+
+    def is_ok?
+      case  apiresult
+      when Net::HTTPSuccess
+        true
+      else
+        false
+      end
+
+    end
+
+
+
+    end
 
 end
