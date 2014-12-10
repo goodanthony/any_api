@@ -14,7 +14,7 @@ module AnyApi
 
     def initialize(http_method, endpoint, params_hsh = nil)
 
-      uri = URI.parse("#{AnyApi.configuration.api_base_url}/#{endpoint}")
+      uri = URI.parse("#{AnyApi.configuration.api_base_url.to_s.gsub(/\/$/, '')}/#{endpoint}")
 
       res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         # a safe eval as only  one of the above HTTPMETHODS would be allowed ie: Get, Put, Post, Delete
