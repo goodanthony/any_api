@@ -26,7 +26,7 @@ module AnyApi
         end
         http.request request
       end
-      logger.info "Processing the request..."
+     
       @apiresult = res
     end
 
@@ -57,12 +57,6 @@ module AnyApi
 
 
 
-  end
-
-  class Railties < ::Rails::Railtie
-    initializer 'Rails logger' do
-      MyGem.logger = Rails.logger
-    end
   end
 
 
