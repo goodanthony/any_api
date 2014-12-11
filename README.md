@@ -25,6 +25,9 @@ Or install it yourself as:
 If you are going to use this with Rails. Add bellow code your application.rb file, or the application_controller.rb file or as an initialiser file. It would work fine with any other Ruby project.
 
 ```ruby
+
+require 'any_api'
+
 AnyApi.configure do |config|
   #please dont put a "/" at the end of the api_base_url
   config.api_base_url =  "https://iamfree.com/api/v1"
@@ -39,6 +42,24 @@ Then you can call any API with
 ```ruby
 response = AnyApi::Request.new("Get", 'products.json' )
 ```
+
+or if cannot be botherd to write AnyApi::Request.new all the time, then use a constants with the configuration
+
+```ruby
+
+require 'any_api'
+
+HIAPI = AnyApi.configure do |config|
+  .....
+end
+```
+
+And then
+
+```ruby
+response = HIAPI("Get", 'products.json' )
+```
+
 
 The first parameter is the HTTP method. Secondly it is the url endpoint.
 
