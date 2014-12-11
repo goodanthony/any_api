@@ -43,21 +43,18 @@ Then you can call any API with
 response = AnyApi::Request.new("Get", 'products.json' )
 ```
 
-or if cannot be botherd to write AnyApi::Request.new all the time, then use a constants with the configuration
+or if cannot be bothered to write AnyApi::Request a many times, then use a constants with the configuration
 
 ```ruby
-
-require 'any_api'
-
-HIAPI = AnyApi.configure do |config|
-  .....
+#after the the above configuration code
+HIAPI = AnyApi::Request
 end
 ```
 
 And then
 
 ```ruby
-response = HIAPI("Get", 'products.json' )
+response = HIAPI.new("Get", 'products.json' )
 ```
 
 
