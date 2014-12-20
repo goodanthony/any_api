@@ -18,7 +18,7 @@ module AnyApi
 
       res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         # a safe eval as only  one of the above HTTPMETHODS would be allowed ie: Get, Put, Post, Delete
-        request = eval "Net::HTTP::#{http_method if HTTPMETHODS.include?(http_method)}.new uri"
+        request = eval "Net::HTTP::#{http_method if HTTPMETHODS.include?(http_method.to_s)}.new uri"
         request.basic_auth(AnyApi.configuration.username, AnyApi.configuration.password)
         request["Content-Type"] = "application/json"
         if params_hsh
@@ -26,7 +26,7 @@ module AnyApi
         end
         http.request request
       end
-     
+
       @apiresult = res
     end
 
